@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 6 - Jully Li</title>
+    <style>
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(45deg, #000000, #000146, #000000, #000e30);
+            background-size: 300% 300%;
+            animation: backgroundAnimation 10s ease infinite;
+            overflow: hidden;
+        }
+        .back-button {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 2px solid #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            color: rgb(255, 0, 60);
+        }
+        .description {
+            color: rgb(255, 255, 255);
+            margin-top: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .canvas-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        let BagelsOfTheDay = [1, 2, 0, 2, 1, 2, 0];
+        let ThoughtsAboutBagelsOfTheDay = [1, 2, 3, 3, 2, 1, 0, 2, 4, 3, 3, 0, 2, 1, 1, 3, 1, 0, 0, 1, 0];
+        let startPosX = 200;
+        let spacing = 40;
+        let passingTime = 0;
+
+        function setup() {
+            createCanvas(600, 600);
+            startTime = millis();
+        }
+
+        function draw() {
+            strokeWeight(0);
+            background(0, 114, 207);
+
+            drawBagel(110, 150, 110); //1
+            drawBagel(420, 430, 150); //7
+            drawBagel(170, 380, 85); //6
+            drawBagel(500, 100, 90); //3
+            drawBagel(280, 240, 30); //4
+            drawBagel(550, 260, 45); //5
+            drawBagel(320, 120, 60); //2
+            drawBagel(70, 520, 50); //8
+
+            if (passingTime > 30) {
+                drawBagel(110, 150, 220);
+            }
+            if (passingTime > 110) {
+                drawBagel(110, 150, 220);
+                drawBagel(320, 120, 120);
+                drawBagel(500, 100, 180);
+            }
+            if (passingTime > 270) {
+                drawBagel(110, 150, 220);
+                drawBagel(320, 120, 120);
+                drawBagel(500, 100, 180);
+                drawBagel(280, 240, 60);
+                drawBagel(550, 260, 90);
+            }
+            if (passingTime > 350) {
+                drawBagel(110, 150, 220);
+                drawBagel(320, 120, 120);
+                drawBagel(500, 100, 180);
+                drawBagel(280, 240, 60);
+                drawBagel(550, 260, 90);
+                drawBagel(170, 380, 170);
+            }
+            if (passingTime > 430) {
+                drawBagel(110, 150, 220);
+                drawBagel(320, 120, 120);
+                drawBagel(500, 100, 180);
+                drawBagel(280, 240, 60);
+                drawBagel(550, 260, 90);
+                drawBagel(170, 380, 170);
+                drawBagel(420, 430, 300);
+                drawBagel(70, 520, 100);
+            } // size changing of the bagels
+
+            if (passingTime < 500) {
+                passingTime++;
+            } else {
+                passingTime = 0;
+            }
+
+            push();
+            fill("white");
+            for (let i = 0; i < BagelsOfTheDay.length; i++) {
+                rectMode(CENTER);
+                rect(startPosX + spacing * i, 300, 30, BagelsOfTheDay[i] * 50);
+            }
+            pop(); // Day of the week that has passed (white rectangles)
+
+            clip(mask, { invert: true });
+            push();
+            fill(255, 65, 146);
+            for (let i = 0; i < BagelsOfTheDay.length; i++) {
+                rectMode(CENTER);
+                rect(startPosX + spacing * i, 300, 30, BagelsOfTheDay[i] * 50);
+            }
+            pop();
+
+            function mask() {
+                fill("white");
+                rectMode(CENTER);
+                rect(-15, 300, 400 + passingTime, 100);
+            }
+            pop();
+
+            push();
+            fill(250, 250, 250, 100);
+            for (let i = 0; i < ThoughtsAboutBagelsOfTheDay.length; i++) {
+                rectMode(CENTER);
+                rect(180 + 15 * i, 300, 10, ThoughtsAboutBagelsOfTheDay[i] * 10);
+            }
+            pop();
+
+            push();
+            stroke(255, 204, 8);
+            strokeWeight(1);
+            fill(255, 204, 8);
+            text("MON", 186, 300);
+            text("TUE", 227, 300);
+            text("WED", 266, 300);
+            text("THU", 307, 300);
+            text("FRI", 350, 300);
+            text("SAT", 389, 300);
+            text("SUN", 429, 300);
+            pop(); // days of the week
+        }
+
+        function drawBagel(cx, cy, cd) {
+            push();
+            fill("white");
+            circle(cx - 3, cy - 3, cd);
+            pop(); // bagel highlight
+
+            push();
+            fill(255, 65, 146);
+            circle(cx + 3, cy + 3, cd);
+            pop(); // bagel shadow
+
+            push();
+            fill(255, 204, 8);
+            circle(cx, cy, cd);
+            pop(); // bagel
+
+            push();
+            fill("white");
+            circle(cx + 3, cy + 3, cd / 5);
+            pop(); // bagel hole highlight
+
+            push();
+            fill(255, 65, 146);
+            circle(cx - 3, cy - 3, cd / 5);
+            pop(); // bagel hole shadow
+
+            push();
+            fill(0, 114, 207);
+            circle(cx, cy, cd / 5);
+            pop(); // bagel hole
+
+            for (let i = 0; i < 70; i++) {
+                push();
+                fill(0, 114, 207, 120);
+                translate(cx, cy);
+                rotate(random(0, PI * 2));
+                circle(0, random(cd / 5 / 2, cd / 2), random(2, 6));
+                pop();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="canvas-container">
+        <a class="back-button" href="p5js.html">&#8592; Back to p5.js Works</a>
+        <div id="canvas"></div> 
+    </div>
+    <div class="description">
+        <p> I track down the data of how much I want to eat a bagel every day in a week and I also count the amount of begal I ate in each day of the week. I spent a lot of time think how to visualize my data because my date or my number list are only made of small numbers, it's hard to make them look interesting just by making charts. So I came up with the I idea of drawing real bagels, and the same amount as the date and significant size change can make it clearer and more attractive.</p>
+    </div>
+</body>
+</html>

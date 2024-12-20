@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 4 - Jully Li</title>
+    <style>
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(45deg, #000000, #000146, #000000, #000e30);
+            background-size: 300% 300%;
+            animation: backgroundAnimation 10s ease infinite;
+            overflow: hidden;
+        }
+
+       
+        .back-button {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 2px solid #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            color: rgb(255, 0, 60);
+        }
+
+        .description {
+            color: rgb(255, 255, 255);
+            margin-top: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .canvas-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        function setup() {
+            createCanvas(400, 600);
+        }
+
+        function draw() {
+            background("#FF9800");
+
+            strokeWeight(0);
+            push();
+            blendMode(HARD_LIGHT);
+            drawEllipse(140, 350, -55);
+            drawEllipse(260, 350, 55);
+            drawButterflyBody();
+            drawRobotbody();
+            pop();
+
+            let x = map(mouseX, 0, width, 20, 80, true);
+            let y = map(mouseY, 0, height, 30, 80, true);
+            drawFriedChicken(x, y); // control the size of the fried chicken by moving mouse
+
+            push();
+            blendMode(HARD_LIGHT);
+            drawBirdHead();
+            drawButterflyLeg();
+            pop(); // each part of the birdman
+        }
+
+        function drawEllipse(a, b, angle) {
+            push();
+            fill("blue");
+            push();
+            translate(a, b);
+            rotate(radians(angle));
+            ellipse(0, 0, 300, 150, 200);
+            pop();
+            pop();
+        }
+
+        function drawButterflyBody() {
+            push();
+            fill(137, 0, 21);
+            clip(mask);
+            ellipse(180, 370, 90, 200);
+            function mask() {
+                ellipse(220, 370, 90, 200);
+            }
+            pop();
+        }
+
+        function drawRobotbody() {
+            push();
+            fill(137, 0, 21);
+            quad(100, 200, 300, 200, 280, 350, 120, 350);
+            pop();
+        }
+
+        function drawBirdHead() {
+            push();
+            fill("blue");
+            circle(200, 150, 130);
+            pop();
+
+            push();
+            fill("orange");
+            triangle(100, 170, 150, 170, 150, 140);
+            pop();
+
+            push();
+            fill("white");
+            circle(190, 140, 30);
+            pop();
+
+            push();
+            fill("red");
+            circle(190, 140, 25);
+            pop();
+        }
+
+        function drawButterflyLeg() {
+            push();
+            strokeWeight(2);
+            line(180, 400, 150, 450);
+            line(150, 450, 185, 550);
+            line(220, 400, 250, 450);
+            line(250, 450, 215, 550);
+            pop();
+        }
+
+        function drawFriedChicken(x, y) {
+            rect(100, 140, 10, 40);
+            circle(100, 180, 10);
+            circle(110, 180, 10);
+            push();
+            fill("#FF4B00");
+            ellipse(105, 130, x, y);
+            pop();
+        }
+    </script>
+</head>
+<body>
+    <div class="canvas-container">
+        <a class="back-button" href="p5js.html">&#8592; Back to p5.js Works</a>
+        <div id="canvas"></div> 
+    </div>
+    <div class="description">
+        <p>We made our own characters and we were asked to combine three of them together to make a new one. My corpse is made of a bird, a butterfly and a robot. I think the hardest part of this assignment it's too think of a way to connect those body parts together. Eventually I used blendMode to indicate the connection.</p>
+    </div>
+</body>
+</html>

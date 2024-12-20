@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 2 - Jully Li</title>
+    <style>
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(45deg, #000000, #000146, #000000, #000e30);
+            background-size: 300% 300%;
+            animation: backgroundAnimation 10s ease infinite;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 2px solid #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            color: rgb(255, 0, 60);
+        }
+
+        .description {
+            color: rgb(255, 255, 255);
+            margin-top: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            text-align: center;
+            padding: 0 1rem;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        let x = 0;
+        let y = 0;
+        let M = 0;
+        let N = 0;
+        let o = 0;
+        let p = 0;
+
+        function setup() {
+            createCanvas(400, 400);
+        }
+
+        function draw() {
+            background("black");
+
+            push();
+            rectMode(CENTER);
+            let rect1 = dist(mouseX, mouseY, width / 2, height / 2) * 2; //distance of the mouse from canvas center
+            rect1 = constrain(rect1, 40, 350);
+
+            if (rect1 > 200) {
+                fill(255, 200 - mouseX + o, 200 - mouseY + p);
+            } else {
+                fill("white");
+            }
+
+            rect(width / 2, height / 2, rect1 + x, rect1 + y, 30);
+            pop(); //the biggest square
+
+            push();
+            fill("black");
+            push();
+            rectMode(CENTER);
+            let centerX = width / 2;
+            let centerY = height / 2;
+            let distance = dist(mouseX, mouseY, centerX, centerY);
+
+            let W1 = constrain(1 + distance, 0, 20);
+            let H1 = constrain(6 + distance, 0, 120);
+            rect(130, 180, W1 + x, H1 + y); //left eye
+
+            rect(270, 180, W1 + x, H1 + y); //right eye
+
+            let centerX2 = width / 2;
+            let centerY2 = height / 2;
+            let distance2 = dist(mouseX, mouseY, centerX2, centerY2);
+
+            let W2 = constrain(10 + distance, 10, 50);
+            let H2 = constrain(20 + distance, 10, 100);
+
+            push();
+            translate(200, 300);
+            rotate(radians(180));
+            arc(0, 0, W2 + x, H2 + y, 0, PI, CHORD);
+            pop(); //mouse
+
+            pop();
+            pop(); //eyes and mouth
+        }
+
+        function mouseMoved() {
+            if (mouseX > 200) {
+                x = random(1, 20);
+            }
+            if (mouseY > 200) {
+                y = random(1, 20);
+            }
+        } //shaking
+
+        function mousePressed() {
+            o = random(100, 225);
+            p = random(100, 225);
+        } //color changes when clicking
+    </script>
+</head>
+<body>
+    <a class="back-button" href="p5js.html">&#8592; Back to p5.js Works</a>
+    <div class="description">
+        <p>  my sketsh is based on the outlet in the US. I found it looks like an unsatisfied face.So in this assignment I use this face and made it looks angry by letting the component of his face shaking. whats I discovered in this assignment is how to combine the "random" and "mouseMoving" effect to get to the feeling I want.</p>
+    </div>
+</body>
+</html>
