@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My Work - Jully Li</title>
+    <style>
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            margin: 0;
+            font-family: serif;
+            background: linear-gradient(45deg, #000000, #000146, #000000, #000e30);
+            background-size: 300% 300%;
+            animation: backgroundAnimation 10s ease infinite;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .header {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .header a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 2px solid #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .header a:hover {
+            transform: scale(1.1);
+            color: rgb(255, 0, 60);
+            
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 1000px;
+            width: 100%;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .work-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Alternate layout for every even item using nth-child selectors */
+        .work-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .work-item-img {
+            flex: 1;
+            max-width: 400px;
+           
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .work-item-img img {
+            width: 100%;
+            display: block;
+        }
+
+        .work-item-info {
+            flex: 1;
+        }
+
+        .work-item-info h2 {
+            margin: 0 0 1rem;
+            font-size: 2rem;
+        }
+
+        .work-item-info p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>My Work</h1>
+        <a href="index.html">&#8592; Back to Home</a>
+    </div>
+
+    <div class="gallery">
+        <!-- Work Item 1 (Image Left, Info Right) -->
+        <div class="work-item">
+            <div class="work-item-img">
+                <img src="IMG_6003.jpeg" alt="Project 1">
+            </div>
+            <div class="work-item-info">
+                <h2>What if?</h2>
+                <p>
+                    An accordion comic book I made. It tells a story about a little animal and its owner and its time travel experience.
+                </p>
+            </div>
+        </div>
+
+        <!-- Work Item 2 (Image Right, Info Left) -->
+        <div class="work-item">
+            <div class="work-item-img">
+                <img src="IMG_6325.jpeg" alt="Project 2">
+            </div>
+            <div class="work-item-info">
+                <h2>Location/Dislocation</h2>
+                <p>
+                   This project is about "home". The location in this pop up book is "wherever my dogs are". I creation four different spaces in this book. 
+                </p>
+            </div>
+        </div>
+
+        <!-- Work Item 3 (Image Left, Info Right) -->
+        <div class="work-item">
+            <div class="work-item-img">
+                <img src="IMG_2100 2.jpg">
+            </div>
+            <div class="work-item-info">
+                <h2>Self portrait</h2>
+                <p>
+                    It's a collection a self portraits. They are from the present, past and future. 
+                </p>
+            </div>
+        </div>
+
+        <!-- fourth project -->
+        <div class="work-item">
+            <div class="work-item-img">
+                <video src="Human cow_Animality final.MOV" controls width="400" height="300" controls poster="IMG_6735.jpg">
+                    
+                </video>
+                
+            </div>
+            <div class="work-item-info">
+                <h2>Human Cow</h2>
+                <p>
+                    It's a short film I made with AI. It's about dairy cow cruelty. I imagined a dystopia where humans turns into cows after they drank milk.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Jully Li | <a href="index.html">Home</a></p>
+    </div>
+</body>
+</html>

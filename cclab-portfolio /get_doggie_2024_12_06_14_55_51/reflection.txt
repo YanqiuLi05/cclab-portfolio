@@ -1,0 +1,11 @@
+My dogs have been one of the most important part of my life, so I made this a game about the story of how I got my first dog. 
+
+The first scene is my Mom and my dad, they knew that I always want a dog but they can always find reasons to refuse. So when you click the "yes" button, it sneak away.
+
+After you click a certain amount of times, mom and dad finally compromised and said if I get good grade then I can have a dog. After clicking the mouse it comes to the two math questions.
+
+if you answer all of them right then you will unlock the dog!!! Take him for a walk in the maze, if you hit the wall or the edge of the canvas, you'll go back and start again. After making it to the little house, you complete all the mission!!
+
+REFLECTION:
+
+In this assignment, I get the chance to try many different things, I learn how to upload image and making pixel art, I also learnt the functions like class, scence swith and stuff. Most important like I get to know how to make a simple little game. I need to keep thinking about the interactivity all the time and put my self in audience shows to design the scenes.
