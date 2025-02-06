@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jully - Artist Portfolio</title>
     <style>
-        @keyframes backgroundAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        
 
         body {
             margin: 0;
             font-family: serif;
-            background: linear-gradient(45deg, #000000, #000146, #000000, #000e30);
+            background: #fbecb2;
             background-size: 300% 300%;
-            animation: backgroundAnimation 10s ease infinite;
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
         }
 
         .container {
@@ -30,14 +24,13 @@
         }
 
         .title {
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.9);
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 2rem;
+            color: #534e3b;
+            position: relative;
+            top: -51rem;
+           
+            
+           
         }
 
         .center-image {
@@ -45,39 +38,45 @@
             height: auto;
          
             position: relative;
+            margin-top: 15rem;
             margin-bottom: 2rem;
         }
 
         .links {
+            
             display: flex;
+            transform: translate(-10%, -40%);
             flex-direction: column;
+            text-align: left;
             gap: 1.2rem;
-            margin-top: 2rem;
+            margin-top: -10rem;
         }
 
         .links a {
-            color: #ffffff;
+            color: #534e3b;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .links a:hover {
           
-            transform: scale(1.2);
-          
-            color: rgb(255, 0, 60);
+            transform: scale(1.1);
+            text-align: left;
+            color: rgb(255, 69, 112);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="type portrait4.jpeg" alt="Featured Artwork" class="center-image">
+        <img src="Alien.JPG" alt="Featured Artwork" class="center-image">
         <h1 class="title">Jully Li</h1>
         <div class="links">
             <a href="bio.html">Bio</a>
             <a href="projects.html">My Works</a>
-            <a href="p5js.html">p5.js Works</a>
+            <a href="p5js.html">P5.js Works</a>
             <a href="https://www.instagram.com/jully_mai/" target="_blank">My Instagram</a> 
+            <a href="p5js.html">Other Works</a>
         </div>
         
     </div>
