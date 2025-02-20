@@ -25,7 +25,7 @@ function setup() {
 }
 
 function draw() {
-  background("rgb(64,64,64)"); 
+  background(64,64,64); 
 
   
   for (let i = 0; i < myCustomPoints2.length; i++) {
@@ -45,8 +45,6 @@ class CustomPoint {
     this.y = y;
     this.size = size;
     this.isColorChanging = isColorChanging;
-    
-    // Initialize color (black for shadow layer, will update for colored layer)
     this.color = isColorChanging ? [255, 255, 255] : [0, 0, 0];
   }
 
