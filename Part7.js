@@ -24,7 +24,8 @@ function setup() {
 }
 
 function draw() {
-  background("rgb(64,64,64)");
+  //background(64,64,64);
+  clear()
 
   for (let i = 0; i < myCustomPoints2.length; i++) {
     myCustomPoints2[i].update();

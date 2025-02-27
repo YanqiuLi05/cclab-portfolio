@@ -61,6 +61,6 @@ class CustomPoint {
   display() {
     fill(this.color[0], this.color[1], this.color[2]);
     noStroke();
-    ellipse(this.x, this.y, this.size, this.size);
+    circle(this.x, this.y, this.size);
   }
 }
