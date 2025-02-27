@@ -19,34 +19,32 @@ function setup() {
   textPoints = myFont.textToPoints("B A G E L", 30, 220, fontSize, { sampleFactor: 0.05 });
 
   for (let i = 0; i < textPoints.length; i++) {
-    myCustomPoints.push(new CustomPoint(textPoints[i].x, textPoints[i].y, pointSize, true)); 
-    myCustomPoints2.push(new CustomPoint(textPoints[i].x + offX, textPoints[i].y + offY, pointSize, false)); 
-    myCustomPoints3.push(new CustomPoint(textPoints[i].x, textPoints[i].y, pointSize - 13, false)); // Now correctly added to myCustomPoints3
+    myCustomPoints.push(new CustomPoint(textPoints[i].x, textPoints[i].y, pointSize,)); 
+    myCustomPoints2.push(new CustomPoint(textPoints[i].x + offX, textPoints[i].y + offY, pointSize)); 
+    myCustomPoints3.push(new CustomPoint(textPoints[i].x, textPoints[i].y, pointSize - 13)); 
   }
 }
 
 function draw() {
   //background(64,64,64); 
  image(bagelImage, 0, 0, width, height); 
-  // Draw shadow layer
+  
   for (let i = 0; i < myCustomPoints2.length; i++) {
     myCustomPoints2[i].display();
   }
-
-  // Draw colorful layer
   for (let i = 0; i < myCustomPoints.length; i++) {
     myCustomPoints[i].update();
     myCustomPoints[i].display();
   }
 
-  // Draw smaller points
+  
   for (let i = 0; i < myCustomPoints3.length; i++) {
     myCustomPoints3[i].display();
   }
 }
 
 class CustomPoint {
-  constructor(x, y, size, isColorChanging) {
+  constructor(x, y, size) {
     this.x = x;
     this.y = y;
     this.size = size;
