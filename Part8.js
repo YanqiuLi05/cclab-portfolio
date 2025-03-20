@@ -18,8 +18,8 @@ function setup() {
 }
 
 function draw() {
-  background(64,64,64);
-  clear()
+  background(64, 64, 64);
+  clear();
 
   for (let i = 0; i < myCustomPoints.length; i++) {
     myCustomPoints[i].update();
@@ -29,30 +29,23 @@ function draw() {
 
 class CustomPoint {
   constructor(x, y, size) {
-   
-    this.x= x;
-    this.y = y; 
+    this.x = x;
+    this.y = y;
     this.size = size;
-    this.color = this.randomColor();
+
     
+    this.color = [random(100, 255), random(100, 255), random(100, 255)];
+
     this.fallSpeed = random(0.1, 0.2);
-    
   }
 
   update() {
-    
     this.y += this.fallSpeed;
-
-    
   }
 
   display() {
     fill(this.color[0], this.color[1], this.color[2]);
     noStroke();
     ellipse(this.x, this.y, this.size, this.size);
-  }
-
-  randomColor() {
-    return [random(100, 255), random(100, 255), random(100, 255)];
   }
 }
