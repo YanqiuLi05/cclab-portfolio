@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagel Lover Quiz</title>
-    <link rel="stylesheet" href="Assignment4.css">
+  <meta charset="UTF-8">
+  <title>Bagel Quiz</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Bagel Lover Quiz!</h1>
-        <a href="page1.html">
-            <button>Start Quiz</button>
-        </a>
-    </div>
+  <h1>Welcome to the Bagel Quiz!</h1>
+  <button onclick="goToPage('q1.html')">Start Quiz</button>
+
+  <script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
+  <script src="storage.js"></script>
 </body>
 </html>

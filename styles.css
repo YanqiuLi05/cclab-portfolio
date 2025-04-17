@@ -1,0 +1,100 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+body {
+  font-family: 'Comic Neue', cursive, sans-serif;
+  background-color: #fff8f0;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #d2691e;
+  margin-bottom: 1rem;
+}
+
+
+button {
+  background: #ffd1dc;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin: 0.5rem;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+input[type="range"],
+input[type="text"] {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: 2px solid #d2691e;
+  margin: 0.5rem 0;
+}
+
+
+img.choice {
+  border-radius: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 0.5rem;
+}
+
+img.choice:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.license-card {
+  display: inline-block;
+  background: #fff5e6;
+  border: 4px dashed #d2691e;
+  border-radius: 1rem;
+  padding: 3rem;         
+  max-width: 600px;   
+  margin-top: 2rem;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.license-card h2 {
+  margin-top: 0;
+  font-size: 2rem;        
+  color: #8b4513;
+  text-transform: uppercase;
+}
+
+
+.license-field label {
+  display: inline-block;
+  width: 35%;             
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #8b4513;
+  font-size: 1.1rem;       
+}
+
+.license-field span {
+  display: inline-block;
+  width: 60%;
+  font-size: 1.1rem;       
+}
+/* css/styles.css */
+
+.license-card img#profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 1rem;  
+  top: 1rem;
+  right: 1rem;
+
+}
+
+/*license card

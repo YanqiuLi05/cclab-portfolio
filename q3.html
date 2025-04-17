@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Q3: How long?</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="q3">
+  <h1>Q3: How long have you been a bagel lover?</h1>
+  <input type="range" id="years" min="0" max="80" value="0">
+  <p><span id="yrs-display">0</span> years</p>
+  <button id="next-btn">Next</button>
+  <script>
+    const slider = document.getElementById('years');
+    const disp = document.getElementById('yrs-display');
+    slider.addEventListener('input', ()=> disp.textContent = slider.value);
+  </script>
+  <script src="storage.js"></script>
+</body>
+</html>
+
