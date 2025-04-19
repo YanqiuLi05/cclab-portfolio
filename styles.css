@@ -61,7 +61,7 @@ img.choice:hover {
   max-width: 600px;   
   margin-top: 2rem;
   position: relative;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  /*box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
 }
 
 .license-card h2 {
@@ -86,7 +86,7 @@ img.choice:hover {
   width: 60%;
   font-size: 1.1rem;       
 }
-/* css/styles.css */
+
 
 .license-card img#profile-img {
   width: 150px;
