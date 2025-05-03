@@ -1,0 +1,53 @@
+[
+    {
+      "id": 5,
+      "title": "Espresso",
+      "price": 1.2,
+      "description": "A bold, concentrated coffee shot with a rich crema on top. It’s smooth, intense, and the foundation of many coffee drinks.",
+      "image": "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?auto=format&fit=crop&q=80&w=1887",
+      "ingredients": [
+        "Ground coffee",
+        "Hot Water"
+      ],
+      "totalSales": 1
+    },
+    {
+      "id": 11,
+      "title": "Hot Chocolate",
+      "price": 1.3,
+      "description": "A rich, creamy beverage made from melted chocolate or cocoa powder, mixed with steamed milk and sweeteners. Often topped with whipped cream or marshmallows, it’s a comforting, indulgent treat.",
+      "image": "https://images.pexels.com/photos/6119123/pexels-photo-6119123.jpeg",
+      "ingredients": [
+        "Chocolate",
+        "Hot Water",
+        "Steamed Milk",
+        "Marshmallow"
+      ],
+      "totalSales": 0
+    },
+    {
+      "id": 2,
+      "title": "Latte",
+      "price": 1.3,
+      "description": "A smooth espresso-based drink with steamed milk and a light layer of foam. It’s creamy, mildly sweet, and perfect for a balanced coffee experience.",
+      "image": "Latte.jpg",
+      "ingredients": [
+        "Ground Coffee",
+        "Steamed Milk"
+      ],
+      "totalSales": 2
+    },
+    {
+      "id": 4,
+      "title": "Cappuccino",
+      "price": 2.0,
+      "description": "A bold espresso drink topped with equal parts steamed milk and velvety foam. It’s rich, creamy, and perfect for those who love a strong coffee flavor.",
+      "image": "https://images.unsplash.com/photo-1557006021-b85faa2bc5e2?auto=format&fit=crop&q=80&w=1887",
+      "ingredients": [
+        "Ground Coffee",
+        "Steamed Milk"
+      ],
+      "totalSales": 14
+    }
+  ]
+  

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Coffee Divination</title>
+  <link rel="stylesheet" href="coffee.css">
+
+</head>
+<body>
+  <h1>Your Coffee Divination</h1>
+  <div id="coffeeCard">Loading…</div>
+  <button onclick="window.location.href='coffee.html'">Try Again</button>
+  <button onclick="window.location.href='Other works.html'">← Go Back </button>
+
+  <script>
+    fetch('coffee.json')
+      .then(res => res.json())
+      .then(coffees => {
+        const mood = localStorage.getItem('coffeeMood') || '';//save user's inputfrom the first page
+        let sum = 0;
+        for (let ch of mood) sum += ch.charCodeAt(0);
+        const idx = sum % coffees.length;
+        const brew = coffees[idx];//same input get same result
+
+        document.getElementById('coffeeCard').innerHTML = `
+          <h2>${brew.title}</h2>
+          <img src="${brew.image}" alt="${brew.title}">
+          <p>${brew.description}</p>
+          <h3>Ingredients:</h3>
+          <ul>${brew.ingredients.map(item => `<li>${item}</li>`).join('')}</ul>
+        `;//get coffee id
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('coffeeCard').textContent = 'Oops—couldn’t load your brew.';
+      });
+  </script>
+</body>
+</html>

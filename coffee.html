@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Oracle</title>
+
+<link rel="stylesheet" href="coffee.css">
+
+  
+</head>
+<body>
+  <h1>Coffee Oracle</h1>
+  <p><strong>How has your day been?</strong></p>
+  <input type="text" id="mood" placeholder="Type a few words…">
+  <br>
+  <button id="generateBtn">Generate My Cup</button>
+
+  <script>
+    document.getElementById('generateBtn').addEventListener('click', () => {
+      const mood = document.getElementById('mood').value.trim();
+      if (!mood) {
+        alert('Please share how your day has been!');
+        return;
+      }
+   
+      localStorage.setItem('coffeeMood', mood);
+      window.location.href = 'coffee result.html';
+    });
+  </script>
+</body>
+</html>
