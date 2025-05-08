@@ -7,7 +7,7 @@
 
 </head>
 <body>
-  <h1>Your Coffee Divination</h1>
+  <h1>Coffee of Your Day</h1>
   <div id="coffeeCard">Loading…</div>
   <button onclick="window.location.href='coffee.html'">Try Again</button>
   <button onclick="window.location.href='Other works.html'">← Go Back </button>
@@ -34,6 +34,44 @@
         console.error(err);
         document.getElementById('coffeeCard').textContent = 'Oops—couldn’t load your brew.';
       });
+      
+const apiKey = "09be93ab56d1fa7dbf1dea7bd112a9d5";
+const city = "New York";
+const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;//weather data in NYC
+
+
+fetch(weatherURL)
+  .then(response => response.json())
+  .then(data => {
+    const weatherMain = data.weather[0].main.toLowerCase(); 
+
+   
+    let bgImage = "";
+
+    if (weatherMain.includes("clear")) {
+      bgImage = "Sunny.jpg";
+    } else if (weatherMain.includes("rain")) {
+      bgImage = "Rainy.jpg";
+    } else if (weatherMain.includes("cloud")) {
+      bgImage = "Cloudy.jpg";
+    } else if (weatherMain.includes("snow")) {
+      bgImage = "Snowy.jpg";
+    } else if (weatherMain.includes("wind")) {
+      bgImage = "Windy.jpg";
+    } else {
+      bgImage = "Rainy.jpg"; //change the background to the matchinf weather, if not match, default background
+    }
+
+ 
+    document.body.style.backgroundImage = `url('${bgImage}')`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center";
+  })
+  .catch(err => {
+    console.error("Weather fetch failed", err);
+  });
+
   </script>
 </body>
 </html>
