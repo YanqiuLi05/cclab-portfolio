@@ -35,43 +35,39 @@
         document.getElementById('coffeeCard').textContent = 'Oops—couldn’t load your brew.';
       });
       
-const apiKey = "09be93ab56d1fa7dbf1dea7bd112a9d5";
-const city = "New York";
-const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;//weather data in NYC
 
-
-fetch(weatherURL)
-  .then(response => response.json())
+      fetch("https://wttr.in/New+York?format=j1")
+  .then(res => res.json())
   .then(data => {
-    const weatherMain = data.weather[0].main.toLowerCase(); 
+    const condition = data.current_condition[0].weatherDesc[0].value.toLowerCase();
+    console.log("NYC Weather:", condition);//weather in nyc
+
+    let bg = "";
 
    
-    let bgImage = "";
-
-    if (weatherMain.includes("clear")) {
-      bgImage = "Sunny.jpg";
-    } else if (weatherMain.includes("rain")) {
-      bgImage = "Rainy.jpg";
-    } else if (weatherMain.includes("cloud")) {
-      bgImage = "Cloudy.jpg";
-    } else if (weatherMain.includes("snow")) {
-      bgImage = "Snowy.jpg";
-    } else if (weatherMain.includes("wind")) {
-      bgImage = "Windy.jpg";
+    if (condition.includes("sun") || condition.includes("clear")) {
+      bg = "Sunny.jpg";
+    } else if (condition.includes("rain") || condition.includes("drizzle")) {
+      bg = "Rainy.jpg";
+    } else if (condition.includes("cloud")) {
+      bg = "Cloudy.jpg";
+    } else if (condition.includes("snow")) {
+      bg = "Snowy.jpg";
+    } else if (condition.includes("wind")) {
+      bg = "Windy.jpg";
     } else {
-      bgImage = "Rainy.jpg"; //change the background to the matchinf weather, if not match, default background
+      bg = "Woodbackground.jpeg"; // change the background to the match with today's wearther
     }
 
- 
-    document.body.style.backgroundImage = `url('${bgImage}')`;
+   
+    document.body.style.backgroundImage = `url('${bg}')`;
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundPosition = "center";
   })
   .catch(err => {
-    console.error("Weather fetch failed", err);
+    console.error("Failed to load weather:", err);
   });
-
-  </script>
+</script>
 </body>
 </html>
