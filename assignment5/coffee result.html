@@ -36,15 +36,15 @@
       });
       
 
-      fetch("https://wttr.in/New+York?format=j1")
+fetch("https://wttr.in/New+York?format=j1")
   .then(res => res.json())
   .then(data => {
     const condition = data.current_condition[0].weatherDesc[0].value.toLowerCase();
-    console.log("NYC Weather:", condition);//weather in nyc
+    console.log("NYC Weather:", condition); //weather of new york
 
     let bg = "";
 
-   
+ 
     if (condition.includes("sun") || condition.includes("clear")) {
       bg = "Sunny.jpg";
     } else if (condition.includes("rain") || condition.includes("drizzle")) {
@@ -56,10 +56,10 @@
     } else if (condition.includes("wind")) {
       bg = "Windy.jpg";
     } else {
-      bg = "Woodbackground.jpeg"; // change the background to the match with today's wearther
+      bg = "Woodbackground.jpeg"; // change the background to the matching weather, if not match, default background
     }
 
-   
+
     document.body.style.backgroundImage = `url('${bg}')`;
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
@@ -69,5 +69,6 @@
     console.error("Failed to load weather:", err);
   });
 </script>
+
 </body>
 </html>
